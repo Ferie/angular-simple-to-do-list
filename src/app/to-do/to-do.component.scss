@@ -1,0 +1,53 @@
+.todo {
+  &__input {
+    padding: 8px 16px
+  }
+
+  &__button {
+    color: #E8BE02;
+    padding: 8px 16px;
+  }
+
+  &__counter {
+    color: #E8BE02;
+    margin: 16px 0;
+  }
+
+  &__list {
+    &__item {
+      position: relative;
+      cursor: pointer;
+      list-style: none;
+      text-transform: uppercase;
+
+      &:hover {
+        background-color: whitesmoke;
+      }
+
+      &--completed {
+        position: absolute;
+        left: -20px;
+        background-image: url('https://cdn0.iconfinder.com/data/icons/iconshock-windows7-icons/256/task_completed.png');
+        background-size: 16px;
+        height: 16px;
+        width: 16px;
+        z-index: 10;
+      }
+
+      &--delete {
+        position: absolute;
+        right: 16px;
+        background-image: url('https://icon-library.com/images/trash-can-icon/trash-can-icon-12.jpg');
+        background-size: 16px;
+        height: 16px;
+        width: 16px;
+        z-index: 10;
+      }
+
+      &.is-completed {
+        color: #076907;
+        text-decoration: line-through;
+      }
+    }
+  }
+}

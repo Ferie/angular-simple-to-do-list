@@ -1,0 +1,35 @@
+<input
+  class="todo__input"
+  type="text"
+  [(ngModel)]="todoTitle"
+  (keydown.enter)="add(todoTitle)"
+>
+
+<button class="todo__button" type="button" (click)="add(todoTitle)">
+  Add
+</button>
+
+<div *ngIf="items.length > 0" class="todo__counter">
+  You have {{ counter }} remaining task{{ counter > 1 ? 's' : '' }} out of {{ items.length }} task{{ items.length > 1 ? 's' : '' }}
+</div>
+
+<ul class="todo__list">
+  <li
+    *ngFor="let todo of items; let i = index"
+    class="todo__list__item"
+    [class.is-completed]="todo.isCompleted"
+    (click)="toggleItem(todo)"
+  >
+    <span
+      *ngIf="todo.isCompleted"
+      class="todo__list__item--completed"
+      title="Completed"
+    ></span>
+    {{ todo.name }}
+    <span
+      class="todo__list__item--delete"
+      title="Delete"
+      (click)="delete(i)"
+    ></span>
+  </li>
+</ul>
